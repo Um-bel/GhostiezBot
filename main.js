@@ -24,30 +24,24 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
         console.log('couldnt find the notif channel')
     }
 
-    if(member.id === '804829914963378216') {
+    if(member.id === '310582337119453185') {
         if(status === (null || undefined) || status.type === (null || undefined)) {
             return; //error handling
         }
 
-        if(status !== null && status.type === "PLAYING") {
-            const twitchE = client.emojis.cache.find(emoji => emoji.name === 'black1'); 
+        if(status !== null && status.type === "STREAMING") {
+            const twitchE = 'https://pngimg.com/uploads/twitch/twitch_PNG27.png'; 
             const ghostiezFace = 'https://images-ext-2.discordapp.net/external/yyL17GXmzrLBRoXW1A_O1EfpM_kPo00j3uRUUOxXWSo/https/static-cdn.jtvnw.net/jtv_user_pictures/13aae65e-71d6-44ba-80f5-9d71dda54fc8-profile_image-300x300.png?width=80&height=80'; 
-    
 
-            let gameImage; 
-            gameImage = status.assets.largeImageURL()
-            if(!status.assets.largeImageURL()) {
-                gameImage = status.assets.smallImageURL(); 
-            }
 
             const notifEmbed = new Discord.MessageEmbed()
             .setAuthor('Twitch', twitchE)
             .setColor('GREEN')
-            .setTitle(`${member.displayName} is streaming ${status.name}! `)
-            // .setDescription(status.assets.smallText)
+            .setTitle(`${member.displayName} is ${status.details}! `)
+            .setDescription(status.name)
+            .setFooter(status.state)
             .setURL(status.url || 'https://www.twitch.tv/anthonytookit')
-            .setThumbnail(ghostiezFace)
-            .setImage(); 
+            .setThumbnail(ghostiezFace); 
 
 
 
