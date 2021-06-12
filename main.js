@@ -34,6 +34,12 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
             const ghostiezFace = 'https://images-ext-2.discordapp.net/external/yyL17GXmzrLBRoXW1A_O1EfpM_kPo00j3uRUUOxXWSo/https/static-cdn.jtvnw.net/jtv_user_pictures/13aae65e-71d6-44ba-80f5-9d71dda54fc8-profile_image-300x300.png?width=80&height=80'; 
     
 
+            let gameImage; 
+            gameImage = status.assets.largeImageURL()
+            if(!status.assets.largeImageURL()) {
+                gameImage = status.assets.smallImageURL(); 
+            }
+
             const notifEmbed = new Discord.MessageEmbed()
             .setAuthor('Twitch', twitchE)
             .setColor('GREEN')
@@ -41,7 +47,7 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
             // .setDescription(status.assets.smallText)
             .setURL(status.url || 'https://www.twitch.tv/anthonytookit')
             .setThumbnail(ghostiezFace)
-            .setImage(status.assets.largeImageURL || status.assets.smallImageURL); 
+            .setImage(); 
 
 
 
