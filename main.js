@@ -29,7 +29,7 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
             return; //error handling
         }
 
-        if(status !== null && status.type === "PLAYING") {
+        if(status !== null && status.type === "STREAMING") {
             const twitchE = client.emojis.cache.find(emoji => emoji.name === 'black1'); 
             const ghostiezFace = 'https://images-ext-2.discordapp.net/external/yyL17GXmzrLBRoXW1A_O1EfpM_kPo00j3uRUUOxXWSo/https/static-cdn.jtvnw.net/jtv_user_pictures/13aae65e-71d6-44ba-80f5-9d71dda54fc8-profile_image-300x300.png?width=80&height=80'; 
     
