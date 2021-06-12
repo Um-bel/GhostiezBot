@@ -41,7 +41,7 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
             // .setDescription(status.assets.smallText)
             .setURL(status.url || 'https://www.twitch.tv/anthonytookit')
             .setThumbnail(ghostiezFace)
-            .setImage(status.assets.largeImage); 
+            .setImage(status.assets.largeImageURL || status.assets.smallImageURL); 
 
 
 
