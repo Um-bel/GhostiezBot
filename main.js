@@ -37,9 +37,8 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
             const notifEmbed = new Discord.MessageEmbed()
             .setAuthor('Twitch', twitchE)
             .setColor('GREEN')
-            .setTitle(`${member.displayName} is ${status.details}! `)
-            .setDescription(status.name)
-            .setFooter(status.state)
+            .setTitle(`${member.displayName} is streaming ${status.state}! `)
+            .setDescription(status.details)
             .setURL(status.url || 'https://www.twitch.tv/anthonytookit')
             .setThumbnail(ghostiezFace); 
 
