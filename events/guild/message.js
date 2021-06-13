@@ -6,25 +6,6 @@ module.exports = async (Discord, client, message) => {
 
     if (message.author.bot) return
 //why does this world have so much hate speech :(
-    const profanity = [
-    "fuck", 
-    "fuckin", 
-    "fucking", 
-    "bitch", 
-    "bitchin", 
-    "bitching", 
-    "shit", 
-    "shithead", 
-    "shitty", 
-    "nigga", 
-    "nigger", 
-    "faggot", //levels
-    "fag"]
-    const blocked = profanity.filter(w => message.content.toLowerCase().includes(w));
-    if (blocked.length > 0) {
-        message.delete().catch(err => console.log(err))
-       message.channel.send(`${message.author}, you kiss your mother with that mouth?`)
-      }      
 
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
