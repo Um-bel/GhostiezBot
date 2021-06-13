@@ -75,10 +75,7 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
     } else {
         return; //more error handling, i think that's all
     }
-});
-
-
-
+})
 
 
 
