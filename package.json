@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/opus": "^0.5.3",
     "child-process": "^1.0.2",
     "discord-buttons": "^3.2.1",
     "discord.js": "^12.5.3",
