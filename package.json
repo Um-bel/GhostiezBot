@@ -12,6 +12,7 @@
     "child-process": "^1.0.2",
     "discord-buttons": "^3.2.1",
     "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
     "fs": "*",
     "got": "^11.8.2",
     "mathjs": "^9.4.2",
