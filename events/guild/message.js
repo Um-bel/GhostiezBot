@@ -1,13 +1,28 @@
 const cooldowns = new Map(); 
+const profileModel = require('../../models/profileData'); 
 
 module.exports = async (Discord, client, message) => {
 
     const prefix = '>'; 
-
-    if (message.author.bot) return
 //why does this world have so much hate speech :(
-
     if(!message.content.startsWith(prefix) || message.author.bot) return;
+
+    let profileData; 
+    try {
+        profileData = await profileModel.findOne({
+            userID: message.author.id, 
+        }); 
+        if(!profileData) {
+            await profileModel.create({
+                userID: message.author.id, 
+                serverID: message.guild.id, 
+                pellets: 100, 
+                bank: 0, 
+            }); 
+        }
+    } catch(error) {
+        console.log(error.message); 
+    }
 
     const args = message.content.slice(prefix.length).split(/ +/); 
     const cmd = args.shift().toLowerCase(); 
@@ -86,5 +101,5 @@ if(time_stamps.has(message.author.id)){
 time_stamps.set(message.author.id, current_time); 
 setTimeout(() => time_stamps.delete(message.author.id), cooldown_ammount); 
 
-    if(command) command.execute(client, message, args, cmd, Discord); 
+    if(command) command.execute(client, message, args, cmd, Discord, profileData); 
 } 

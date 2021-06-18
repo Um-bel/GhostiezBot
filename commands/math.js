@@ -21,9 +21,9 @@ module.exports = {
         .setColor('RANDOM')
         .setTitle('Calculator')
         .addField('Question', `\`\`\`css\n${args.join(' ')}\`\`\``) 
-        .addField('Awnser', `\`\`\`css\n${resp}\`\`\``)
+        .addField('Awnser', `\`\`\`css\n${resp}\`\`\``); 
 
-        message.channel.send(embed)
+        message.channel.send(embed); 
 
     }
 

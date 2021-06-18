@@ -3,5 +3,6 @@ module.exports = async (Discord, client) =>{
     client.user.setActivity('>help', { type: "PLAYING"});
 
     const memberCounter = require('../../counters/member-counter'); 
+
     memberCounter(client); 
 }
