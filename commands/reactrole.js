@@ -30,7 +30,7 @@ module.exports = {
         const purple = '🍇'; 
 
         const minecraft = '<:minecraft:857100613712216074>';
-        const league = '<:leagueOfLegends:857119147606540308>>';
+        const league = '<:leagueOfLegends:857119147606540308>';
         const apex = '<:apex:857119834055507990>';
         const wow = '<:wow:857121371862466560>';
         const overwatch = '<:overwatch:857121748864598045>';
