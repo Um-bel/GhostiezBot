@@ -1,33 +1,35 @@
 {
-  "name": "ghostiez-bot",
+  "name": "ghostiezbot",
   "version": "1.0.0",
-  "description": "",
+  "description": "John's dealo",
   "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm install @discordjs/opus child-process discord-buttons fs got mathjs moment node-fetch weather-js weather.js yt-search ytdl-core"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.5.3",
     "child-process": "^1.0.2",
     "discord-buttons": "^3.2.1",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
-<<<<<<< HEAD
-    "fs": "0.0.2",
-=======
-    "fs": "*",
->>>>>>> 3a8bb7a77aca654224a1bfba954d09bcef51db45
+    "fs": "^0.0.2",
     "got": "^11.8.2",
     "mathjs": "^9.4.2",
     "moment": "^2.29.1",
-    "mongoose": "^5.12.14",
     "node-fetch": "^2.6.1",
     "weather-js": "^2.0.0",
     "weather.js": "^0.1.0",
     "yt-search": "^2.9.0",
     "ytdl-core": "^4.8.2"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Um-bel/GhostiezBot.git"
+  },
+  "author": "John Mienko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Um-bel/GhostiezBot/issues"
+  },
+  "homepage": "https://github.com/Um-bel/GhostiezBot#readme"
 }
