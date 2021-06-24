@@ -29,11 +29,11 @@ module.exports = {
         const green = '🥬'; 
         const purple = '🍇'; 
 
-        const minecraft = '${minecraftEmoji}'
-        const league = '${leagueEmoji}' 
-        const apex = '${apexEmoji}'
-        const wow = 'wowEmoji'
-        const overwatch = '${overwatchEmoji}'
+        const minecraft = '<:minecraft:857100613712216074>';
+        const league = '<:leagueOfLegends:857119147606540308>>';
+        const apex = '<:apex:857119834055507990>';
+        const wow = '<:wow:857121371862466560>';
+        const overwatch = '<:overwatch:857121748864598045>';
 
         const embed = new Discord.MessageEmbed()
         .setColor('GREEN')
@@ -66,11 +66,11 @@ module.exports = {
         await messageEmbed.react(purple);
 
         let messageEmbed1 = await message.channel.send(gameEmbed); 
-        // await messageEmbed1.react(minecraft); 
-        // await messageEmbed1.react(league); 
-        // await messageEmbed1.react(apex); 
-        // await messageEmbed1.react(wow); 
-        // await messageEmbed1.react(overwatch);
+        await messageEmbed1.react(minecraft); 
+        await messageEmbed1.react(league); 
+        await messageEmbed1.react(apex); 
+        await messageEmbed1.react(wow); 
+        await messageEmbed1.react(overwatch);
 
 
         client.on('messageReactionAdd', async (reaction, user)=> {
@@ -90,6 +90,16 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(greenRole); 
                 }else if(reaction.emoji.name === purple) {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(purpleRole); 
+                }else if(reaction.emoji.id === '857100613712216074') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(minecraft); 
+                }else if(reaction.emoji.id === '857119147606540308') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(leagueRole); 
+                }else if(reaction.emoji.id === '857119834055507990') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(apexRole); 
+                }else if(reaction.emoji.id === '857121371862466560') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(wowRole); 
+                }else if(reaction.emoji.id === '857121748864598045') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(overwatchRole); 
                 }
             } else {
                 return; 
@@ -113,6 +123,16 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(greenRole); 
                 }else if(reaction.emoji.name === purple) {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(purpleRole); 
+                }else if(reaction.emoji.id === '857100613712216074') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(minecraft); 
+                }else if(reaction.emoji.id === '857119147606540308') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(leagueRole); 
+                }else if(reaction.emoji.id === '857119834055507990') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(apexRole); 
+                }else if(reaction.emoji.id === '857121371862466560') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(wowRole); 
+                }else if(reaction.emoji.id === '857121748864598045') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(overwatchRole); 
                 }
             } else {
                 return; 
