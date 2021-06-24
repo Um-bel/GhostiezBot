@@ -15,7 +15,11 @@
     "discord-buttons": "^3.2.1",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
+<<<<<<< HEAD
     "fs": "0.0.2",
+=======
+    "fs": "*",
+>>>>>>> 3a8bb7a77aca654224a1bfba954d09bcef51db45
     "got": "^11.8.2",
     "mathjs": "^9.4.2",
     "moment": "^2.29.1",
