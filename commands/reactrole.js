@@ -73,7 +73,7 @@ module.exports = {
         await messageEmbed1.react(overwatch);
 
 
-        client.on('messageReactionAdd', async (reaction, user)=> {
+        client.on('messageReactionAdd', async (reaction, user) => {
             if(reaction.message.partial) await reaction.message.fetch(); 
             if(reaction.partial) await reaction.fetch(); 
             if(user.bot) return; 
@@ -123,7 +123,7 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(greenRole); 
                 }else if(reaction.emoji.name === purple) {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(purpleRole); 
-                }else if(reaction.emoji.id === '857100613712216074') {
+                }else if(reaction.emoji.name === 'minecraft') {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(minecraft); 
                 }else if(reaction.emoji.id === '857119147606540308') {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(leagueRole); 
