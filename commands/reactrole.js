@@ -6,7 +6,7 @@ module.exports = {
         if(message.author.id !== '804829914963378216') {
             return; 
         }
-        const channel = '854381518998208552'; 
+        const channel = '854385910375645225'; 
 
         await message.delete(); 
 
@@ -90,7 +90,7 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(greenRole); 
                 }else if(reaction.emoji.name === purple) {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(purpleRole); 
-                }else if(reaction.emoji.id === '857100613712216074') {
+                }else if(reaction.emoji.name === 'minecraft') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(minecraft); 
                 }else if(reaction.emoji.id === '857119147606540308') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(leagueRole); 
