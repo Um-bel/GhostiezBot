@@ -6,7 +6,7 @@ module.exports = {
         if(message.author.id !== '804829914963378216') {
             return; 
         }
-        const channel = '854385910375645225'; 
+        const channel = '854381518998208552'; 
 
         await message.delete(); 
 
@@ -73,7 +73,7 @@ module.exports = {
         await messageEmbed1.react(overwatch);
 
 
-        client.on('messageReactionAdd', async (reaction, user) => {
+        client.on('messageReactionAdd', async (reaction, user)=> {
             if(reaction.message.partial) await reaction.message.fetch(); 
             if(reaction.partial) await reaction.fetch(); 
             if(user.bot) return; 
@@ -90,8 +90,8 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(greenRole); 
                 }else if(reaction.emoji.name === purple) {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(purpleRole); 
-                }else if(reaction.emoji.name === 'minecraft') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(minecraft); 
+                }else if(reaction.emoji.id === '857100613712216074') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(minecraftRole); 
                 }else if(reaction.emoji.id === '857119147606540308') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(leagueRole); 
                 }else if(reaction.emoji.id === '857119834055507990') {
@@ -123,8 +123,8 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(greenRole); 
                 }else if(reaction.emoji.name === purple) {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(purpleRole); 
-                }else if(reaction.emoji.name === 'minecraft') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(minecraft); 
+                }else if(reaction.emoji.id === '857100613712216074') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(minecraftRole); 
                 }else if(reaction.emoji.id === '857119147606540308') {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(leagueRole); 
                 }else if(reaction.emoji.id === '857119834055507990') {
