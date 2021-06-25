@@ -4,82 +4,112 @@ module.exports = {
     desc: 'dosent matter kek', 
     async execute(client, message, args, cmd, Discord) {
 
-      const x = 60000; 
-      let pollChannel = client.channels.cache.find(channel => channel.id === '854208322751168562');
-    
+      let x = 60000; 
+      let survay = {}; 
+
       let reactions = [
-        '🔵', 
-        '🔴', 
-        '🟢', 
-        '🟣', 
-        '🟠', 
-        '🟡', 
+        "1️⃣",
+        "2️⃣",
+        "3️⃣",
+        "4️⃣"
       ]; 
 
+      message.channel.send("what is the poll question?").then(() => {
+        let filter = (message) => !message.author.bot; 
+          let options = {
+            max: 1, 
+            time: x*15, 
+          }; 
 
-      await message.channel.send(`list yours polls please`); 
-      let pollMap = await message.channel.awaitMessages(u2 => u2.author.id === message.author.id, {time: x*30, max: 1, errors: ["time"]});
-      await message.channel.send(`and how long do you want the poll to go on for?`); 
-      let pollTime = await message.channel.awaitMessages(u2 => u2.author.id === message.author.id, {time: x*30, max: 1, errors: ["time"]});
+          return message.channel.awaitMessages(filter, options);
+      }).then((collected) => {
+        survay.question = collected.array()[0].content; 
+        return message.channel.send("and how long do you want the poll to be?");
+      
+      }).then(() => {
+        let filter = (message) => !message.author.bot; 
+        let options = {
+          max: 1, 
+          time: x*15, 
+        }; 
 
-      let res = pollMap.first().content; 
-      const resArray = res.split(", ");
- 
-      if(resArray.length > 6) {
-        return message.channel.send("you can't have more than 6 polls"); 
-      }
+        return message.channel.awaitMessages(filter, options);
+      }).then((collected) => {
 
-      let pollDesc = ""; 
-      resArray.forEach((res, index) => {
-        pollDesc += `${reactions[index]} ➤ ${res}\n\n`
-      }); 
+        if(!isNaN(collected.array()[0].content)) {
+          survay.timeout = collected.array()[0].content; 
 
+          return message.channel.send("and what are the options for the poll?"); 
+        } else {
+          throw "time_format_error"
+        }
+      }).then(() => {
+        let filter = (message) => !message.author.bot; 
+        let options = {
+          max: 1, 
+          time: x*15, 
+        }; 
 
-      const timeForPoll = parseInt(pollTime.first().content) * 1000 
-      const pollEmbed = new Discord.MessageEmbed()
-      .setAuthor(`Time: ${pollTime.first().content} secs`)
-      .setTitle(`!!! New Poll !!!`)
-      .setDescription(pollDesc); 
+        return message.channel.awaitMessages(filter, options);
+      }).then((collected) => {
+        survay.answers = collected.array()[0].content.split(", "); 
 
-      await message.channel.send(pollEmbed).then(pollEmbedMessage => {
+        let survayDesc = ""; 
 
-        for(var i = 0; i < resArray.length; i++) {
-          pollEmbedMessage.react(reactions[i]); 
+        survay.answers.forEach((question, index) => {
+          survayDesc += `${reactions[index]}: ${question}\n`; 
+        }); 
+
+        let survayEmbed = new Discord.MessageEmbed()
+        .setTitle(`New poll: ${survay.question}`)
+        .setAuthor(`time: ${survay.timeout} seconds`) 
+        .setDescription(survayDesc); 
+
+        return message.channel.send(survayEmbed); 
+      }).then(survayEmbedMessage => {
+        for(var i = 0; i < survay.answers.length; i++) {
+          survayEmbedMessage.react(reactions[i]); 
         }
 
         const filter = (reaction, user) => {
           return reactions.includes(reaction.emoji.name) && !user.bot; 
+        }; 
+
+        const options = {
+          time: survay.timeout * 1000
         }
 
+        return survayEmbedMessage.awaitReactions(filter, options); 
       }).then(collected => {
-          let collectedArray = collected.array(); 
+        let collectedArray = collected.array(); 
 
-          let collectedReactions = collectedArray.map(item => item._emoji.name); 
-          let reactionCounts = {}; 
+        let collectedReactions = collectedArray.map(item => item._emoji.name); 
+        let reactionCounts = {}; 
 
-          collectedReactions.forEach(reaction => {
-            if(reactionCounts[reaction]) {
-              reactionCounts[reaction]++
-            } else {
-              reactionCounts = 1
-            }
-          })
+        collectedReactions.forEach(reaction => {
+          if(reactionCounts[reaction]) {
+            reactionCounts[reaction]++
+          } else {
+            reactionCounts[reaction] = 1
+          }
+        }); 
 
-          let pollResults = ""; 
-          resArray.forEach((res, index) => {
-            let voteCount = 0; 
-            if(reactionCounts[reactions[index]]) {
-              voteCount = reactionCounts[reactions[index]]
-            }
-            let voteCountContent = `(${voteCount} vote${voteCount !== 1 ? 's' : ''})`
-            pollResults += `${reactions[index]}: ${res} ${voteCountContent}\n\n`; 
-          })
+        let survayResults = ""
+        survay.answers.forEach((question, index) => {
+          let voteCount = 0; 
+          if(reactionCounts[reactions[index]]) {
+            voteCount = reactionCounts[reactions[index]]
+          }
 
-          const resultsEmbed = new Discord.MessageEmbed()
-          .setTitle(`Results: (${collectedArray.length} votes collected)`)
-          .setDescription(pollResults);
+          let voteCountContent = `(${voteCount} vote${voteCount !== 1 ? 's' : ''})`; 
+          survayResults += `${reactions[index]}: ${question} ${voteCountContent}\n`; 
+        }); 
 
-          message.channel.send(resultsEmbed); 
-      }); 
+        let survayResultsEmbed = new Discord.MessageEmbed()
+        .setTitle(`Results for '${survay.question}' (${collectedArray.length} total votes)`)
+        .setDescription(survayResults); 
+
+        message.channel.send(survayResultsEmbed); 
+      })
     }
 }
