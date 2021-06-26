@@ -67,8 +67,7 @@ module.exports = {
         );
 
         const OtherEmbed = new Discord.MessageEmbed()
-        .setTitle()
-        .setDescription('Pick some other roles!')
+        .setTitle('Pick some other roles!')
         .setDescription('\n\n'
             + `${NSFW} ➤ ${NSFWrole}\n\n`
             + `${twitch} ➤ ${twitchRole}\n\n`
@@ -93,7 +92,7 @@ module.exports = {
         let messageEmbed2 = await message.channel.send(OtherEmbed); 
         await messageEmbed2.react(NSFW); 
         await messageEmbed2.react(twitch); 
-        await messageEmbed2.react();
+        await messageEmbed2.react(mostUsedSocial);
 
         client.on('messageReactionAdd', async (reaction, user)=> {
             if(reaction.message.partial) await reaction.message.fetch(); 
