@@ -22,6 +22,10 @@ module.exports = {
         const wowRole = message.guild.roles.cache.find(role => role.id === '855134063021916160'); 
         const overwatchRole = message.guild.roles.cache.find(role => role.id === '855134259386777661'); 
 
+        const NSFWrole = message.guild.roles.cache.find(role => role.id === '858154052202397727'); 
+        const twitchRole = message.guild.roles.cache.find(role => role.id === '858154422358376498'); 
+        const mostUsedSocialRole = message.guild.roles.cache.find(role => role.id === '858192822696017970'); 
+
 
         const blue = '🥶'; 
         const yellow = '🍦'; 
@@ -32,8 +36,13 @@ module.exports = {
         const minecraft = '<:minecraft:857100613712216074>';
         const league = '<:leagueOfLegends:857119147606540308>';
         const apex = '<:apex:857119834055507990>';
-        const wow = '<:wow:857121371862466560>';
         const overwatch = '<:overwatch:857121748864598045>';
+        const wow = '<:wow:857121371862466560>';
+
+        const twitch = '<:twitch:858192355710468126>'; 
+        const NSFW = '😋'; 
+        const mostUsedSocial = '<:twitter:858192235702779914>'; 
+
 
         const embed = new Discord.MessageEmbed()
         .setColor('GREEN')
@@ -55,7 +64,16 @@ module.exports = {
             + `${apex} ➤ ${apexRole}\n\n` 
             + `${wow} ➤ ${wowRole}\n\n`
             + `${overwatch} ➤ ${overwatchRole}\n\n`
-        ); 
+        );
+
+        const OtherEmbed = new Discord.MessageEmbed()
+        .setTitle()
+        .setDescription('Pick some other roles!')
+        .setDescription('\n\n'
+            + `${NSFW} ➤ ${NSFWrole}\n\n`
+            + `${twitch} ➤ ${twitchRole}\n\n`
+            + `${mostUsedSocial} ➤ ${mostUsedSocialRole}\n\n`
+            ); 
 
         
         let messageEmbed = await message.channel.send(embed); 
@@ -63,7 +81,7 @@ module.exports = {
         await messageEmbed.react(yellow); 
         await messageEmbed.react(pink); 
         await messageEmbed.react(green); 
-        await messageEmbed.react(purple);
+        await messageEmbed.react(purple); 
 
         let messageEmbed1 = await message.channel.send(gameEmbed); 
         await messageEmbed1.react(minecraft); 
@@ -72,6 +90,10 @@ module.exports = {
         await messageEmbed1.react(wow); 
         await messageEmbed1.react(overwatch);
 
+        let messageEmbed2 = await message.channel.send(OtherEmbed); 
+        await messageEmbed2.react(NSFW); 
+        await messageEmbed2.react(twitch); 
+        await messageEmbed2.react();
 
         client.on('messageReactionAdd', async (reaction, user)=> {
             if(reaction.message.partial) await reaction.message.fetch(); 
@@ -100,13 +122,19 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(wowRole); 
                 }else if(reaction.emoji.id === '857121748864598045') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(overwatchRole); 
+                }else if(reaction.emoji.name === NSFW) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(NSFWrole); 
+                }else if(reaction.emoji.id === '858192355710468126') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(twitchRole); 
+                }else if(reaction.emoji.id === '858192235702779914') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(mostUsedSocialRole); 
                 }
             } else {
                 return; 
             }
         }); 
 
-        client.on('messageReactionRemove', async (reaction, user)=> {
+        client.on('messageReactionRemove', async (reaction, user) => {
             if(reaction.message.partial) await reaction.message.fetch(); 
             if(reaction.partial) await reaction.fetch(); 
             if(user.bot) return; 
@@ -133,6 +161,12 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(wowRole); 
                 }else if(reaction.emoji.id === '857121748864598045') {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(overwatchRole); 
+                }else if(reaction.emoji.name === NSFW) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(NSFWrole); 
+                }else if(reaction.emoji.id === '858192355710468126') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(twitchRole); 
+                }else if(reaction.emoji.id === '858192235702779914') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(mostUsedSocialRole); 
                 }
             } else {
                 return; 
