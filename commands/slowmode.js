@@ -19,11 +19,9 @@ async execute(client, message, args, cmd, Discord){
         message.channel.send(embed)
         return;
 
-    message.channel.send(`Slow Mode set to ${args[0]}`)
-
-    .catch((e) => {
+    message.channel.send(`Slow Mode set to ${args[0]}`).catch((err) => {
         message.channel.send('Error Occured!')
-        e ? console.error(e) : console.log('Uknown Error')
+        err ? console.error(err) : console.log('Uknown Error')
     })
 } 
 }

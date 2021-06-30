@@ -62,7 +62,7 @@ module.exports = {
 
         let survayEmbed = new Discord.MessageEmbed()
         .setTitle(`New poll: ${survay.question}`)
-        .setAuthor(`time: ${survay.timeout} seconds`) 
+        .setAuthor(`time: ${survay.timeout} minutes`) 
         .setDescription(survayDesc); 
 
         return message.channel.send(survayEmbed); 
@@ -76,7 +76,7 @@ module.exports = {
         }; 
 
         const options = {
-          time: survay.timeout * 1000
+          time: survay.timeout * 1000 * 60000
         }
 
         return survayEmbedMessage.awaitReactions(filter, options); 
@@ -116,7 +116,7 @@ module.exports = {
           **/
           
 
-          survayResults += `${reactions[index]}: ${question} ${finalPersentage}\n`; 
+          survayResults += `${reactions[index]} ${question}: ${finalPersentage}\n`; 
 
         }); 
 
