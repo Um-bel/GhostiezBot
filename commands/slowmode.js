@@ -27,5 +27,3 @@ async execute(client, message, args, cmd, Discord){
     })
 } 
 }
-
-//this works fine

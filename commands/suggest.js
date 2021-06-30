@@ -22,4 +22,3 @@ module.exports = {
             })
     }
 }
-//this works fine, but i should make it more of a poll, or make a seperate poll command

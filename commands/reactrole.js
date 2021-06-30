@@ -25,6 +25,7 @@ module.exports = {
         const NSFWrole = message.guild.roles.cache.find(role => role.id === '858154052202397727'); 
         const twitchRole = message.guild.roles.cache.find(role => role.id === '858154422358376498'); 
         const mostUsedSocialRole = message.guild.roles.cache.find(role => role.id === '858192822696017970'); 
+        const susRole = message.guild.roles.cache.find(role => role.id === "858395834487668796"); 
 
 
         const blue = '🥶'; 
@@ -38,6 +39,7 @@ module.exports = {
         const apex = '<:apex:857119834055507990>';
         const overwatch = '<:overwatch:857121748864598045>';
         const wow = '<:wow:857121371862466560>';
+        const sus = ''; 
 
         const twitch = '<:twitch:858192355710468126>'; 
         const NSFW = '😋'; 
@@ -88,6 +90,7 @@ module.exports = {
         await messageEmbed1.react(apex); 
         await messageEmbed1.react(wow); 
         await messageEmbed1.react(overwatch);
+        await messageEmbed1.react(sus); 
 
         let messageEmbed2 = await message.channel.send(OtherEmbed); 
         await messageEmbed2.react(NSFW); 
@@ -127,6 +130,8 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(twitchRole); 
                 }else if(reaction.emoji.id === '858192235702779914') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(mostUsedSocialRole); 
+                }else if(reaction.emoji.name === sus) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(susROle)
                 }
             } else {
                 return; 
@@ -166,6 +171,8 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(twitchRole); 
                 }else if(reaction.emoji.id === '858192235702779914') {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(mostUsedSocialRole); 
+                }else if(reaction.emoji.name === sus) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(susROle)
                 }
             } else {
                 return; 

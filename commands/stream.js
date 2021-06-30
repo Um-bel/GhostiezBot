@@ -26,6 +26,8 @@ module.exports = {
             status = ghostie.presence.activities[0]; 
         }
 
+        //this is horrible. maybe do "ghostie.presence.find"?
+
 
         if(status.type !== "STREAMING") {
             message.channel.send('you are not streaming right now')

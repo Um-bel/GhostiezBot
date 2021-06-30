@@ -22,5 +22,3 @@ module.exports = {
 
     } 
 }
-
-//this should work, how to use >ban @user. you need the ban perm to use

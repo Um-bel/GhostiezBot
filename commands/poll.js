@@ -106,14 +106,18 @@ module.exports = {
             const totalVotes = collectedArray.length;
             const voteCountPersent = voteCount/totalVotes;
             const finalPersentage = `${voteCountPersent*100}%`; 
+          /* I'm calculating %'s here. what im doing is: 
+          
+          getting all of the total votes: collectedArray.length; 
 
+          divide each variable by the total votes. lucky for me, voteCount is a forEach loop
+
+          then get the final persnetage by mutiplying each by 100
+          **/
           
 
           survayResults += `${reactions[index]}: ${question} ${finalPersentage}\n`; 
-          /**
-           * how to calculate %s: 
-           * 
-           */
+
         }); 
 
         let survayResultsEmbed = new Discord.MessageEmbed()

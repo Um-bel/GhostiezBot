@@ -18,5 +18,3 @@ module.exports = {
 
     } 
 }
-
-//this works, use it exactly the same way you >ban but instead with >kick @user

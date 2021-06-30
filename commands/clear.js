@@ -15,4 +15,3 @@ module.exports = {
         }); 
     } 
 }
-//this works fine, but you need the "mannage messages" perms
