@@ -102,7 +102,18 @@ module.exports = {
           }
 
           let voteCountContent = `(${voteCount} vote${voteCount !== 1 ? 's' : ''})`; 
-          survayResults += `${reactions[index]}: ${question} ${voteCountContent}\n`; 
+          
+            const totalVotes = collectedArray.length;
+            const voteCountPersent = voteCount/totalVotes;
+            const finalPersentage = `${voteCountPersent*100}%`; 
+
+          
+
+          survayResults += `${reactions[index]}: ${question} ${finalPersentage}\n`; 
+          /**
+           * how to calculate %s: 
+           * 
+           */
         }); 
 
         let survayResultsEmbed = new Discord.MessageEmbed()
