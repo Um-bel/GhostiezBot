@@ -131,7 +131,7 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(twitchRole); 
                 }else if(reaction.emoji.id === '858192235702779914') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(mostUsedSocialRole); 
-                }else if(reaction.emoji.name === sus) {
+                }else if(reaction.emoji.name === '859675857198907432') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(susRole)
                 }
             } else {
@@ -172,8 +172,8 @@ module.exports = {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(twitchRole); 
                 }else if(reaction.emoji.id === '858192235702779914') {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(mostUsedSocialRole); 
-                }else if(reaction.emoji.name === sus) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(susROle)
+                }else if(reaction.emoji.id === '859675857198907432') {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(susRole)
                 }
             } else {
                 return; 
