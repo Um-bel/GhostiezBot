@@ -21,11 +21,11 @@ module.exports = {
         const apexRole = message.guild.roles.cache.find(role => role.id === '855133904092135464'); 
         const wowRole = message.guild.roles.cache.find(role => role.id === '855134063021916160'); 
         const overwatchRole = message.guild.roles.cache.find(role => role.id === '855134259386777661'); 
-
+        const susRole = message.guild.roles.cache.find(role => role.id === "858395834487668796"); 
+        
         const NSFWrole = message.guild.roles.cache.find(role => role.id === '858154052202397727'); 
         const twitchRole = message.guild.roles.cache.find(role => role.id === '858154422358376498'); 
         const mostUsedSocialRole = message.guild.roles.cache.find(role => role.id === '858192822696017970'); 
-        const susRole = message.guild.roles.cache.find(role => role.id === "858395834487668796"); 
 
 
         const blue = '🥶'; 
@@ -66,6 +66,7 @@ module.exports = {
             + `${apex} ➤ ${apexRole}\n\n` 
             + `${wow} ➤ ${wowRole}\n\n`
             + `${overwatch} ➤ ${overwatchRole}\n\n`
+            + `${sus} ➤ ${susRole}`
         );
 
         const OtherEmbed = new Discord.MessageEmbed()
@@ -131,7 +132,7 @@ module.exports = {
                 }else if(reaction.emoji.id === '858192235702779914') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(mostUsedSocialRole); 
                 }else if(reaction.emoji.name === sus) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(susROle)
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(susRole)
                 }
             } else {
                 return; 
