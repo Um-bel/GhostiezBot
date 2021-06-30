@@ -22,7 +22,7 @@ module.exports = {
         const wowRole = message.guild.roles.cache.find(role => role.id === '855134063021916160'); 
         const overwatchRole = message.guild.roles.cache.find(role => role.id === '855134259386777661'); 
         const susRole = message.guild.roles.cache.find(role => role.id === "858395834487668796"); 
-        
+
         const NSFWrole = message.guild.roles.cache.find(role => role.id === '858154052202397727'); 
         const twitchRole = message.guild.roles.cache.find(role => role.id === '858154422358376498'); 
         const mostUsedSocialRole = message.guild.roles.cache.find(role => role.id === '858192822696017970'); 
@@ -39,7 +39,7 @@ module.exports = {
         const apex = '<:apex:857119834055507990>';
         const overwatch = '<:overwatch:857121748864598045>';
         const wow = '<:wow:857121371862466560>';
-        const sus = ''; 
+        const sus = '<:sus:859675857198907432>'; 
 
         const twitch = '<:twitch:858192355710468126>'; 
         const NSFW = '😋'; 
