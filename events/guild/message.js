@@ -5,7 +5,7 @@ module.exports = async (Discord, client, message) => {
 
 
     const prefix = '>'; 
-//why does this world have so much hate speech :(
+
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
     let profileData; 
