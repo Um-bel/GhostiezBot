@@ -2,11 +2,6 @@ const cooldowns = new Map();
 const profileModel = require('../../models/profileData'); 
 
 module.exports = async (Discord, client, message) => {
-
-    if(message.channel.id === '859678053838618654' && message.author.id === "804829914963378216" && message.content == "fuck" || "shit") {
-        message.channel.send("it seems as though you fucked up!")
-    }
-
     const prefix = '>'; 
 //why does this world have so much hate speech :(
     if(!message.content.startsWith(prefix) || message.author.bot) return;
