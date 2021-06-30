@@ -3,9 +3,9 @@ module.exports = async (Discord, client) =>{
 
     const clientMs = Math.round(client.ws.ping); 
     
-    setTimeout(() => {
-        client.user.setActivity(`on ${clientMs} ping`, { type: "PLAYING"});
-    }, 5000); 
+
+        client.user.setActivity(`https://www.twitch.tv/anthonytookit`, { type: "WATCHING"});
+ 
 
     // const memberCounter = require('../../counters/member-counter'); 
 
